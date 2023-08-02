@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 type Props = {};
 
-const Contact = async (props: Props) => {
+const Contact = (props: Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
