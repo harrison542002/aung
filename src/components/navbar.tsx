@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import navbarStyle from "./navbar.module.css";
+import SpacingLayout from "./SpacingLayout";
 
 type Props = {};
 
@@ -13,8 +14,7 @@ const Navbar = (props: Props) => {
   const links = [
     { href: "/", link: "Intro" },
     { href: "/experiences", link: "Experiences" },
-    { href: "/education", link: "Education" },
-    { href: "/contact", link: "Contact Me" },
+    { href: "/projects", link: "Projects" },
   ];
 
   const menuClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -23,32 +23,42 @@ const Navbar = (props: Props) => {
 
   return (
     <>
-      <div className="bg-white/80 sticky top-0 z-30">
-        <div className="mx-10 py-5 flex justify-between">
-          <div>
-            <h1>Logo</h1>
-          </div>
-          <div
-            className={`flex lg:hidden ${navbarStyle.menu_btn} ${
-              open === true ? navbarStyle.open : ""
-            }`}
-            onClick={(event) => menuClick(event)}
-          >
-            <div className={navbarStyle.meun_btn__burger}></div>
-          </div>
-          <ul className="lg:flex hidden gap-9">
-            {links.map((link) => (
+      <div className="bg-white/90 sticky top-0 z-30">
+        <SpacingLayout>
+          <div className="py-5 flex justify-between">
+            <div>
+              <h1>Logo</h1>
+            </div>
+            <div
+              className={`flex lg:hidden ${navbarStyle.menu_btn} ${
+                open === true ? navbarStyle.open : ""
+              }`}
+              onClick={(event) => menuClick(event)}
+            >
+              <div className={navbarStyle.meun_btn__burger}></div>
+            </div>
+            <ul className="lg:flex hidden gap-9">
+              {links.map((link) => (
+                <li>
+                  <Link
+                    href={link.href}
+                    className={path === link.href ? "font-bold" : "font-normal"}
+                  >
+                    {link.link}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link
-                  href={link.href}
-                  className={path === link.href ? "font-bold" : "font-normal"}
+                  href={"/contact"}
+                  className="bg-cyan-400 p-3 font-bold text-black rounded-md shadow-md"
                 >
-                  {link.link}
+                  Contact Me
                 </Link>
               </li>
-            ))}
-          </ul>
-        </div>
+            </ul>
+          </div>
+        </SpacingLayout>
       </div>
       {/* Mobile Navbar */}
       <div

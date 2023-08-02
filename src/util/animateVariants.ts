@@ -7,10 +7,6 @@ const variant = {
     y: 0,
     opacity: 1,
   },
-  existState: {
-    y: 10,
-    opacity: 0,
-  },
 };
 
 const rightslide = {
@@ -22,10 +18,6 @@ const rightslide = {
     x: 0,
     opacity: 1,
   },
-  existState: {
-    x: 100,
-    opacity: 0,
-  },
 };
 
 const leftslide = {
@@ -36,10 +28,6 @@ const leftslide = {
   animateState: {
     x: 0,
     opacity: 1,
-  },
-  existState: {
-    x: -100,
-    opacity: 0,
   },
 };
 
