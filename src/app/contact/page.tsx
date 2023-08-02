@@ -8,6 +8,7 @@ import { FiMail } from "react-icons/fi";
 import { FaLocationArrow } from "react-icons/fa";
 import { VscLoading } from "react-icons/vsc";
 import clsx from "clsx";
+import TypedHeading from "@/components/typeheading";
 
 type Props = {};
 
@@ -69,14 +70,7 @@ const Contact = (props: Props) => {
   return (
     <SpacingLayout>
       <div className="py-10">
-        <h1 className="lg:text-6xl text-5xl font-extrabold">
-          <ReactTyped
-            strings={["Let's Keep In Touch"]}
-            typeSpeed={50}
-            backSpeed={50}
-            showCursor={false}
-          />
-        </h1>
+        <TypedHeading heading="Let's Keep In Touch" />
         <motion.div
           transition={{ duration: 0.5, delay: 0.03 }}
           variants={variant}
@@ -91,21 +85,21 @@ const Contact = (props: Props) => {
                 <div className="text-xl flex items-center bg-black p-2 text-white rounded-md mr-3 shadow-md">
                   <FiMail />
                 </div>
-                <p className="h-full flex flex-col justify-center py-1 md:text-base text-lg">
+                <p className="h-full flex flex-col justify-center py-1 text-base lg:text-lg ">
                   aungthiha12345mdy@gmail.com
                 </p>
               </div>
               <div className="flex items-center">
-                <div className="text-xl flex items-center bg-black p-2 text-white rounded-md mr-3 shadow-md">
-                  <FaLocationArrow size={20} />
+                <div className="lg:text-xl md:text-lg text-base flex items-center bg-black p-2 text-white rounded-md mr-3 shadow-md">
+                  <FaLocationArrow />
                 </div>
-                <p className="h-full flex flex-col justify-center py-1 text-lg">
+                <p className="h-full flex flex-col justify-center py-1 lg:text-lg text-base">
                   Mandalay, Myanmar
                 </p>
               </div>
             </div>
           </div>
-          <div className="py-5">
+          <div className="lg:py-5 md:py-5">
             <motion.h2
               transition={{ duration: 0.5, delay: 0.03 }}
               variants={variant}

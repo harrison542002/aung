@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowUpRightSquare } from "react-icons/bs";
-import ReactTyped from "react-typed";
 import { leftslide, rightslide } from "../util/animateVariants";
 import SpacingLayout from "@/components/SpacingLayout";
+import TypedHeading from "@/components/typeheading";
 
 const EduCard = ({
   img,
@@ -36,40 +36,35 @@ const EduCard = ({
   );
 };
 
-const Home = async () => {
+const Home = () => {
   return (
     <SpacingLayout>
       <div className="py-10">
-        <h1 className="lg:text-6xl text-5xl font-extrabold">
-          <ReactTyped
-            strings={["Hi, My Name is Aung Thiha Htun"]}
-            typeSpeed={50}
-            backSpeed={50}
-            showCursor={false}
-          />
-        </h1>
+        <TypedHeading heading="Hi, My Name is Aung Thiha Htun" />
         <div className="grid lg:grid-cols-6 md:grid-cols-6 grid-cols-1 py-10 gap-5">
           <div className="col-span-2">
-            <motion.div
-              className="relative aspect-square"
-              transition={{ duration: 0.8, delay: 0.5 }}
-              variants={leftslide}
-              initial={"initialState"}
-              animate={"animateState"}
-            >
-              <Image
-                src={"/img/profile.jpg"}
-                alt="Aung Thiha Htun"
-                className="absolute rounded-md shadow-xl border"
-                fill
-              />
-            </motion.div>
+            <div className="w-60">
+              <motion.div
+                className="relative aspect-square"
+                transition={{ duration: 0.8, delay: 0.5 }}
+                variants={leftslide}
+                initial={"initialState"}
+                animate={"animateState"}
+              >
+                <Image
+                  src={"/img/profile.jpg"}
+                  alt="Aung Thiha Htun"
+                  className="absolute rounded-md shadow-xl border"
+                  fill
+                />
+              </motion.div>
+            </div>
             <motion.p
               transition={{ duration: 0.8, delay: 0.5 }}
               variants={rightslide}
               initial={"initialState"}
               animate={"animateState"}
-              className="py-10 text-sm text-justify"
+              className="lg:py-10 md:py-8 py-5 text-sm text-justify"
             >
               <b className="block text-base">An Ambitious Youth On CS</b> I have
               been working and learning on software dev since 2020 and created

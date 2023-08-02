@@ -4,15 +4,14 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { variant } from "../../util/animateVariants";
 import Link from "next/link";
-import ReactTyped from "react-typed";
 import clsx from "clsx";
 import { SiTailwindcss, SiJavascript, SiJquery } from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 import { BiLogoSpringBoot, BiLogoTypescript } from "react-icons/bi";
-
 import { FaGithub, FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import SpacingLayout from "@/components/SpacingLayout";
+import TypedHeading from "@/components/typeheading";
 type Props = {};
 
 const ProjectCard = ({
@@ -57,8 +56,10 @@ const ProjectCard = ({
           />
         </div>
         <div className="p-5 bg-black rounded-b-md">
-          <h3 className="text-2xl font-semibold">{project_title}</h3>
-          <p className="text-sm py-5">{description}</p>
+          <h3 className="lg:text-2xl md:text-xl text-lg font-semibold ">
+            {project_title}
+          </h3>
+          <p className="lg:text-sm text-xs py-5 text-justify">{description}</p>
           <div className="flex gap-3 text-xl py-3">{icons}</div>
         </div>
       </div>
@@ -66,18 +67,11 @@ const ProjectCard = ({
   );
 };
 
-const Projects = async (props: Props) => {
+const Projects = (props: Props) => {
   return (
     <SpacingLayout>
       <div className="py-10">
-        <h1 className="lg:text-6xl text-5xl font-extrabold">
-          <ReactTyped
-            strings={["Projects I Have Accomplished"]}
-            typeSpeed={50}
-            backSpeed={50}
-            showCursor={false}
-          />
-        </h1>
+        <TypedHeading heading="Projects I Have Accomplished" />
         <div className="py-5">
           <motion.h2
             transition={{ duration: 0.8, delay: 0.5 }}
