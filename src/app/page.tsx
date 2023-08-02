@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsArrowUpRightSquare } from "react-icons/bs";
 import ReactTyped from "react-typed";
-import { variant, leftslide, rightslide } from "../util/animateVariants";
+import { leftslide, rightslide } from "../util/animateVariants";
 import SpacingLayout from "@/components/SpacingLayout";
 
 const EduCard = ({
@@ -36,24 +36,18 @@ const EduCard = ({
   );
 };
 
-export default function Home() {
+const Home = async () => {
   return (
     <SpacingLayout>
       <div className="py-10">
-        <motion.h1
-          className="lg:text-6xl text-5xl font-extrabold"
-          transition={{ duration: 0.8, delay: 0.3 }}
-          variants={variant}
-          initial={"initialState"}
-          animate={"animateState"}
-        >
+        <h1 className="lg:text-6xl text-5xl font-extrabold">
           <ReactTyped
             strings={["Hi, My Name is Aung Thiha Htun"]}
             typeSpeed={50}
             backSpeed={50}
             showCursor={false}
           />
-        </motion.h1>
+        </h1>
         <div className="grid lg:grid-cols-6 md:grid-cols-6 grid-cols-1 py-10 gap-5">
           <div className="col-span-2">
             <motion.div
@@ -66,7 +60,7 @@ export default function Home() {
               <Image
                 src={"/img/profile.jpg"}
                 alt="Aung Thiha Htun"
-                className="absolute rounded-md"
+                className="absolute rounded-md shadow-xl border"
                 fill
               />
             </motion.div>
@@ -75,13 +69,12 @@ export default function Home() {
               variants={rightslide}
               initial={"initialState"}
               animate={"animateState"}
-              className="py-3 text-sm text-justify"
+              className="py-10 text-sm text-justify"
             >
-              <b className="block text-base">A Ambitious Youth About CS</b> I
-              have been working and learning on software dev since 2020 and
-              created lots of personal, academic and commercial projects. As a
-              person, I am optimistic, passionate, fast to learn and timely on
-              deadline.
+              <b className="block text-base">An Ambitious Youth On CS</b> I have
+              been working and learning on software dev since 2020 and created
+              lots of personal, academic and commercial projects. As a person, I
+              am optimistic, passionate, fast to learn and timely on deadline.
             </motion.p>
           </div>
           <div className="col-span-4 lg:text-xl md:text-lg text-base font-light">
@@ -118,4 +111,6 @@ export default function Home() {
       </div>
     </SpacingLayout>
   );
-}
+};
+
+export default Home;

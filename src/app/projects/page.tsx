@@ -66,24 +66,18 @@ const ProjectCard = ({
   );
 };
 
-const Projects = (props: Props) => {
+const Projects = async (props: Props) => {
   return (
     <SpacingLayout>
-      <motion.div className="py-10">
-        <motion.h1
-          className="lg:text-6xl text-5xl font-extrabold"
-          transition={{ duration: 0.8, delay: 0.3 }}
-          variants={variant}
-          initial={"initialState"}
-          animate={"animateState"}
-        >
+      <div className="py-10">
+        <h1 className="lg:text-6xl text-5xl font-extrabold">
           <ReactTyped
             strings={["Projects I Have Accomplished"]}
             typeSpeed={50}
             backSpeed={50}
             showCursor={false}
           />
-        </motion.h1>
+        </h1>
         <div className="py-5">
           <motion.h2
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -183,7 +177,7 @@ const Projects = (props: Props) => {
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </SpacingLayout>
   );
 };
