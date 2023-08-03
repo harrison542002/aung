@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsArrowUpRightSquare } from "react-icons/bs";
 import { leftslide, rightslide } from "../util/animateVariants";
+import { FiDownload } from "react-icons/fi";
 import SpacingLayout from "@/components/SpacingLayout";
 import TypedHeading from "@/components/typeheading";
 
@@ -59,18 +60,31 @@ const Home = () => {
                 />
               </motion.div>
             </div>
-            <motion.p
+            <motion.div
               transition={{ duration: 0.8, delay: 0.5 }}
               variants={rightslide}
               initial={"initialState"}
               animate={"animateState"}
-              className="lg:py-10 md:py-8 py-5 text-sm text-justify"
             >
-              <b className="block text-base">An Ambitious Youth On CS</b> I have
-              been working and learning on software dev since 2020 and created
-              lots of personal, academic and commercial projects. As a person, I
-              am optimistic, passionate, fast to learn and timely on deadline.
-            </motion.p>
+              <p className="lg:py-8 md:py-8 py-5 text-sm text-justify">
+                <b className="block text-base">An Ambitious Youth On CS</b> I
+                have been working and learning on software dev since 2020 and
+                created lots of personal, academic and commercial projects. As a
+                person, I am optimistic, passionate, fast to learn and timely on
+                deadline.
+              </p>
+              <Link
+                href={
+                  "https://drive.google.com/file/d/1XbWep3MLm6koH0lrDGdO_uzI3KHoPSeY/view?usp=sharing"
+                }
+                target="_blank"
+              >
+                <button className="flex items-center bg-black text-white lg:p-3 md:p-2 p-2 rounded-md transition-all duration-500 hover:text-cyan-400 lg:text-lg md:text-base text-sm font-light">
+                  <p className="inline-block">Download My Resume</p>
+                  <FiDownload className="inline-block lg:ml-3 md:ml-2 ml-2" />
+                </button>
+              </Link>
+            </motion.div>
           </div>
           <div className="col-span-4 lg:text-xl md:text-lg text-base font-light">
             <motion.div
@@ -97,7 +111,7 @@ const Home = () => {
               <Link href="/experiences">
                 <button className="shadow-md lg:p-3 md:p-2 p-2 lg:text-lg md:text-base text-sm bg-slate-950 my-5 text-slate-100 rounded-md hover:text-cyan-400 transition-all duration-700">
                   <p className="inline-block">Explore My Experiences</p>
-                  <BsArrowUpRightSquare className="inline-block ml-5" />
+                  <BsArrowUpRightSquare className="inline-block lg:ml-3 md:ml-2 ml-2" />
                 </button>
               </Link>
             </motion.div>
