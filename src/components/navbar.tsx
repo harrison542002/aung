@@ -24,7 +24,7 @@ const Navbar = (props: Props) => {
 
   return (
     <>
-      <div className="bg-white/90 sticky top-0 z-30">
+      <div className="bg-white/90 sticky top-0 z-30 border-b-2">
         <SpacingLayout>
           <div className="py-3 flex justify-between">
             <div>
