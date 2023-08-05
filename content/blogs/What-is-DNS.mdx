@@ -1,0 +1,72 @@
+---
+title: What is DNS
+date: 2022-11-16T17:30:00.000Z
+paragraph:
+  - paragraph: >
+      DNS သည်လည်း ထိုနည်း၄င်းပင်  ကျွန်တော်တို့ browser မှာ www.google.com
+      ဆိုတာကို internet ဟာ နားမလည်ပါဘူး။ internet ဟာ IP address (internet
+      protocol address) ကို ဘဲ နားလည် ပါတယ်။ ဥပမာ - 172.253.118.103 သည်
+      www.google.com ရဲ့ IP address ဘဲဖြစ်ပါတယ်။ ဤ IP address ကို browser
+      မှာရိုက်လိုက်ရင် Google search page ကျလာပါတယ်။ ထို့ကြောင့် www.google.com
+      ဆိုတဲ့ domain name ကို ရိုက်လိုက်လျှင် client ဟာ DNS စီကို အရင်ဆုံး
+      request လုပ်ရပါတယ်။ ရလာတဲ့ IP Address ကိုမှ ကိုက်ညီတဲ့ server ကို
+      communicate လုပ်ပါတယ်။
+
+
+      ### How does it work?
+
+
+      DNS မှာ  servers များစွာဟာ ပူးပေါင်းလုပ်ဆောင်ရပါတယ်။
+
+
+      * DNS recursor - သူကတော့ client (browser application) ရဲ့ query ကို အဓိက
+      handle လုပ်ပီး အခြား ကျန် သော servers တွေနဲ့ communicate လုပ်သူဖြစ်ပါတယ်။
+
+      * Root nameserver - root nameserver  ဟာ ပထမဆုံး ကျွန်တော်တို့ရဲ့ query(
+      www.google.com) ကို translate လုပ်ပေးသူဖြစ်တယ်။ သူဟာ ကျွန်တော် တို့ query
+      နဲ့ သက်ဆိုင်တဲ့ TLD nameserver ကို ရှာပေးပါတယ်။
+
+      * TLD nameserver ( top level domain name server) - အရှေ့ က query
+      (www.google.com) မှာဆိုလျှင် .com ကို top level domain လို့ခေါ်ပါတယ်။ TLD
+      .com server မှ google.com ၏ authoritative nam server ရဲ့ IP address ကို
+      ရှာပေးပါတယ်။
+
+      * Authorities name server - ဤ name server ကတော့ DNS chain ရဲ့ final name
+      server ဖြစ်ပြီး client request လုပ်တဲ့ resource ၏ IP address ကို DNS
+      recursor အားပို့ပေးတယ်။
+
+
+      ယေဘုအားဖြင့် DNS lookup အဆင့်တွေမှာ -
+
+
+      1. Client မှ google.com ဆိုတာကို ရိုက်ပီး အရင် ဆုံး DNS recursor
+      စီရောက်တယ်။
+
+      2. DNS recursor မှ root name server ထံမှ TLD name server ရဲ့ address
+      ကိုတောင်းတယ်။
+
+      3. ဤ IP address ဖြင့် TLD name server ကို ရှာ၍ Authoritative name server
+      (google.com name server) ၏ IP address ကို တဆင့်မေးတယ်။
+
+      4. DNS recursor မှနောက်တဆင့် Authoritative name server ထံမှ client query
+      နဲ့ ကိုက်ညီ တဲ့ IP Address ကို တောင်းဆိုတယ်။
+
+      5. Authoritative name server မှ အတိအကျ IP Address DNS recursor ထံသို
+      ပေးပို့တယ်။ နောက်ဆုံး DNS recursor မှ IP address (172.253.118.103) အား
+      client ( browser) ထံသို့ ပြန်ပေးပို့ပါတယ်။
+
+      6. Client မှ HTTP request အား ဤ IP address သို့ request လုပ်ပါတယ်။ 7.
+      ကိုက်ညီ တဲ့ resource (Google page)  ကို server မှ client အားပေးပို့ပါတယ်။
+
+
+      ဒီလောက်ဆိုလျှင် DNS ဘယ်လိုအသုံးဝင်တယ် ဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို နားလည်မယ်
+      လို့ မျှော်လင့်ပါတယ်။
+    paragraphImage: /blog/dns.jpg
+    _template: paragraphWithImage
+intro: >
+  DNS ဆိုတာ ကျွန်တော်တို့ အရင်ကသုံးတဲ့ လမ်းညွှန်း ဆိုတဲ့ စာအုပ်မျိုးပါ။ တနေရာကို
+  သွားချင်တဲ့ ချိန်မှာ လူတွေက နာမည်တွေဘဲ သိကြတယ် Ocean, Capital Mall စသဖြင့်
+  ပေါ့။ အဲ့ကို သွားဖို့ဆိုရင် လမ်းလိပ်စာ အတိအကျ သိဖို့ လို့ ပါတယ်။ အဲ့တော့
+  ကျွန်တော်တို့ လမ်းညွှန်းဆိုတဲ့ စာအုပ်ကနေ ရှာကြည့်ရပါတယ်။
+---
+

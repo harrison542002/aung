@@ -5,7 +5,7 @@ type Props = {
 };
 
 const SpacingLayout = ({ children }: Props) => {
-  return <div className="lg:mx-20 md:mx-10 mx-8">{children}</div>;
+  return <div className="lg:mx-20 md:mx-10 mx-8 ">{children}</div>;
 };
 
 export default SpacingLayout;

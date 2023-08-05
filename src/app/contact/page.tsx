@@ -3,7 +3,6 @@ import SpacingLayout from "@/components/SpacingLayout";
 import React, { useState } from "react";
 import { variant } from "../../util/animateVariants";
 import { motion } from "framer-motion";
-import ReactTyped from "react-typed";
 import { FiMail } from "react-icons/fi";
 import { FaLocationArrow } from "react-icons/fa";
 import { VscLoading } from "react-icons/vsc";
@@ -12,7 +11,7 @@ import TypedHeading from "@/components/typeheading";
 
 type Props = {};
 
-const Contact = (props: Props) => {
+const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -67,6 +66,94 @@ const Contact = (props: Props) => {
         });
     }
   };
+
+  return (
+    <form
+      className="my-5 space-y-5 border p-5 bg-white rounded-md shadow-lg"
+      onSubmit={(e) => onFormSubmit(e)}
+      id="contact-form"
+    >
+      {submitted === true ? (
+        <>
+          <div className="flex py-16 justify-center items-center">
+            <p className="text-center text-xl font-bold">
+              Thank You For Submission {name} !
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <input
+            type="text"
+            className={clsx(
+              `border w-full h-14 focus:outline-none px-2 rounded-md shadow-sm ${
+                nameError ? "border-red-600" : ""
+              }`
+            )}
+            placeholder="Your Name"
+            onChange={(e) => {
+              setName(() => {
+                if (e.target.value.length <= 0) {
+                  setNameError(true);
+                } else {
+                  setNameError(false);
+                }
+                return e.target.value;
+              });
+            }}
+          />
+          <input
+            type="email"
+            className={clsx(
+              `border w-full h-14 focus:outline-none px-2 rounded-md shadow-sm ${
+                emailError ? "border-red-600" : ""
+              }`
+            )}
+            placeholder="Your Email Address"
+            onChange={(e) => {
+              setEmail(() => {
+                if (e.target.value.length <= 0) {
+                  setEmailError(true);
+                } else {
+                  setEmailError(false);
+                }
+                return e.target.value;
+              });
+            }}
+          />
+          <textarea
+            className={clsx(
+              `border w-full focus:outline-none px-2 py-3 rounded-md shadow-sm ${
+                messageError ? "border-red-600" : ""
+              }`
+            )}
+            rows={4}
+            placeholder="Leave Message Here"
+            onChange={(e) => {
+              setMessage(() => {
+                if (e.target.value.length <= 0) {
+                  setMessageError(true);
+                } else {
+                  setMessageError(false);
+                }
+                return e.target.value;
+              });
+            }}
+          ></textarea>
+          <button
+            type="submit"
+            disabled={disable}
+            className="hover:bg-cyan-500 transition-all duration-500 bg-cyan-400 w-full lg:p-5 p-3 rounded-md shadow-md text-lg font-semibold flex justify-center items-center"
+          >
+            {loading ? <VscLoading className="animate-spin" /> : "Send"}
+          </button>
+        </>
+      )}
+    </form>
+  );
+};
+
+const Contact = (props: Props) => {
   return (
     <SpacingLayout>
       <div className="py-10">
@@ -109,88 +196,7 @@ const Contact = (props: Props) => {
             >
               Reach Out To Me
             </motion.h2>
-            <form
-              className="my-5 space-y-5 border p-5 bg-white rounded-md shadow-lg"
-              onSubmit={(e) => onFormSubmit(e)}
-              id="contact-form"
-            >
-              {submitted === true ? (
-                <>
-                  <div className="flex py-16 justify-center items-center">
-                    <p className="text-center text-xl font-bold">
-                      Thank You For Submission {name} !
-                    </p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <input
-                    type="text"
-                    className={clsx(
-                      `border w-full h-14 focus:outline-none px-2 rounded-md shadow-sm ${
-                        nameError ? "border-red-600" : ""
-                      }`
-                    )}
-                    placeholder="Your Name"
-                    onChange={(e) => {
-                      setName(() => {
-                        if (e.target.value.length <= 0) {
-                          setNameError(true);
-                        } else {
-                          setNameError(false);
-                        }
-                        return e.target.value;
-                      });
-                    }}
-                  />
-                  <input
-                    type="email"
-                    className={clsx(
-                      `border w-full h-14 focus:outline-none px-2 rounded-md shadow-sm ${
-                        emailError ? "border-red-600" : ""
-                      }`
-                    )}
-                    placeholder="Your Email Address"
-                    onChange={(e) => {
-                      setEmail(() => {
-                        if (e.target.value.length <= 0) {
-                          setEmailError(true);
-                        } else {
-                          setEmailError(false);
-                        }
-                        return e.target.value;
-                      });
-                    }}
-                  />
-                  <textarea
-                    className={clsx(
-                      `border w-full focus:outline-none px-2 py-3 rounded-md shadow-sm ${
-                        messageError ? "border-red-600" : ""
-                      }`
-                    )}
-                    rows={4}
-                    placeholder="Leave Message Here"
-                    onChange={(e) => {
-                      setMessage(() => {
-                        if (e.target.value.length <= 0) {
-                          setMessageError(true);
-                        } else {
-                          setMessageError(false);
-                        }
-                        return e.target.value;
-                      });
-                    }}
-                  ></textarea>
-                  <button
-                    type="submit"
-                    disabled={disable}
-                    className="hover:bg-cyan-500 transition-all duration-500 bg-cyan-400 w-full lg:p-5 p-3 rounded-md shadow-md text-lg font-semibold flex justify-center items-center"
-                  >
-                    {loading ? <VscLoading className="animate-spin" /> : "Send"}
-                  </button>
-                </>
-              )}
-            </form>
+            <ContactForm />
           </div>
         </motion.div>
       </div>

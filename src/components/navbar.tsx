@@ -16,6 +16,7 @@ const Navbar = (props: Props) => {
     { href: "/", link: "Intro" },
     { href: "/experiences", link: "Experiences" },
     { href: "/projects", link: "Projects" },
+    { href: "/blog", link: "Blogs" },
   ];
 
   const menuClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {

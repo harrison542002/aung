@@ -1,0 +1,57 @@
+---
+title: What is HTTPS
+date: 2022-11-12T17:30:00.000Z
+paragraph:
+  - paragraph: >
+      ### How does HTTPS work?
+
+
+      HTTPS ဟာ Data တွေကို encryption လုပ်တဲ့နေရာ မှာ TLS (Transport Layer
+      Security) or SSL (Secure Socket Layer) ကိုသုံးပါတယ်။ ထို့ကြောင့် HTTPS
+      over TLS လို့လည်းခေါ်ပါတယ်။ TLS သည် Symmetric Encryption ရော Asymmetric
+      Encryption ကိုပါ ပေါင်းစပ်အသုံးပြုပါတယ်။ encryption လုပ်ရာ မှာ private နဲ့
+      public key မှာအရေးကြီးကဏ္ဍာဖြစ်ပါတယ်။Private key - server မှာဘဲsecure
+      ထားသော key။Public key - public ကို expose ထားသော key။
+
+
+      Website တခုဟာ HTTP မှ HTTPS သို့ပြောင်းလဲလိုပါက private key ကို
+      Certificate signing request ဖြင့် generate လုပ်၍ SSL Certificate ကို
+      အသုံးပြုရပါတယ်။ private key ဟာ server တွင် embed လုပ်၍ public key ကိုတော့
+      certificate မှာ attach လုပ်ပါတယ်။ Certificate ကို Certificate Authorities
+      မှ Sign ထိုးပေးတယ်။ တနည်းအားဖြင့်ဆိုလျှင် ဤ certificate ကို authority က
+      private key ဖြင့် encrypt လုပ်ထားပါတယ်။ browser တွေဟာ default အဖြင့် ဤ
+      authority များ၏ public key ကို install လုပ်ထား၍ Client သည် ဒီ certificate
+      ဟာ authority တွေ sign လုပ်ထားလာဆိုတာကို public key ဖြင့် decrypt လုပ်ကာ
+      စမ်းစစ်တယ်။ certificate ဟာ စစ်မှန်လျှင် server မှ client ဘက်ကို public key
+      ပို့ပေးတယ်။ client ဘက်မှ random session key ကို generate လုပ်၍ ထို key အား
+      server ၏ public key ဖြင့် encrypt လုပ်၍ server ဘက်သို့ပေးပို့တယ်။ Server
+      ဘက်မှတဆင့် private key ဖြင့် session key ကို decrypt လုပ်၍ ရရှိတယ်။
+      ဤအဆင့်ထိကို Asymmetric Encryption တွေဖြစ်ပြိီး parties handshake ဟာ
+      ပြီးသွားပါပြီ။
+
+
+      ထို့နောက် client မှ ပေးပို့သည့် user information, bank information စသည်တွေ
+      အားလုံးကို session key ဖြင့် encrypt လုပ်၍ server မှ တဆင့် ဤ data များကို
+      session key ဖြင့်သာ decrypt ပြန်လုပ်တယ်။ ဤ stage မှာတော့ session key ကိုသာ
+      နှဖက်က အသုံးပြုသည်ဖြစ်၍ symmetric encryption လို့ခေါ်ပါတယ်။
+
+
+      ဤ နည်း ဖြင့် HTTPS ဟာ data တွေကို secure ဖြစ်ကာ  ပေးပို့နိုင်ပါတယ်။ အခုဆို
+      လျှင် HTTPS ဟာ ဘယ်လိုအလုပ်လုပ်တယ်
+      ဆိုတာကိုနားလည်သွားမယ်လို့မျှော်လင့်ပါတယ်။
+
+    paragraphImage: /blog/https.jpg
+    _template: paragraphWithImage
+intro: >
+  HTTPS ကိုမပြောခင်မှာ HTTP အကြောင်းအရင်ပြောပြချင်ပါတယ်။ HTTP (Hypertext
+  Transfer Protocol) ဆိုသည်မှာ Application Layer မှာရှိတဲ့ protocol ဖြစ်တယ်။
+  WWW( World Wide Web) အတွင်း data communication (data ချယ်လှဲခြင်း)
+  မှာအသုံးပြုတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ browser မှာ တခုခုကိုရှာတဲ့ချိန် URL
+  အရှေ့ဆုံးမှာ HTTP သို့မဟုတ် HTTPS လို့တွေ့ရပါလိမ့်မယ်။ Data ဆိုတဲ့ နေရာမှာ
+  hypermedia တွေဖြစ်တဲ့ graphics, audio, video, plaintext
+  ကိုဆိုလိုခြင်းဖြစ်ပါတယ်။ ထိုကြောင့် data communication လုပ်ရာတွင် data တွေဟာ
+  ပြောင်းလဲမှုမရှိဘဲ တဖက်ကိုပို့သည့်အတွက် man-in-middle-attack, eavesdropping
+  စသည်တွေကို ဖြစ်စေနိုင်ပါတယ်။ HTTPS ဟာ HTTP မှ extend လုပ်လာတာဖြစ်ပီး data
+  communication လုပ်ရာတွင် URL (Uniform Resource Locator) နဲ့ Port number မှအပ
+  ကျန်သော data တွေကို encrypt လုပ်ပေးပါတယ်။
+---
