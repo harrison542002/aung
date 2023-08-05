@@ -1,4 +1,4 @@
-## My latest portfolio with NextJS
+# My latest portfolio with NextJS
 
 This project is written in NextJS framework in the first time with integration of CMS for content blogging of my interest.
 
@@ -19,13 +19,13 @@ This project is written in NextJS framework in the first time with integration o
 
 ## Steps for installation and configure
 
-# Clone my respository as below.
+### Clone my respository as below.
 
 ```bash
 git clone "https://github.com/harrison542002/aung.git"
 ```
 
-# Run below commands to start the server.
+### Run below commands to start the server.
 
 ```bash
 npm run dev
@@ -35,7 +35,7 @@ yarn dev
 pnpm dev
 ```
 
-# Add Environment variables of Tina CMS.
+### Add Environment variables of Tina CMS.
 
 Get your own client id, token and configure branch to access Tina Cloud.
 Append "/admin" after your home url.
