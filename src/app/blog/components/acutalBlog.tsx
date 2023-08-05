@@ -6,6 +6,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import formatDate from "@/lib/formatDate";
 import { AiOutlineLeft } from "react-icons/ai";
 import Link from "next/link";
+import Image from "next/image";
 type Props = {
   data: BlogQuery;
   variables: { relativePath: string };
@@ -33,6 +34,34 @@ const ActualBlog = (props: Props) => {
           {data.blog.paragraph?.map((p) => {
             switch (p?.__typename) {
               case "BlogParagraphParagraphWithImage": {
+                return (
+                  <>
+                    <div className="flex justify-center items-center">
+                      <div className="relative aspect-video my-10 shadow-md w-full max-w-xl h-auto border">
+                        <Image
+                          src={p.paragraphImage as string}
+                          fill
+                          alt="blogging"
+                          className="absolute"
+                        />
+                      </div>
+                    </div>
+                    <TinaMarkdown
+                      content={p.paragraph}
+                      components={{
+                        p: (props) => <p className="text-justify" {...props} />,
+                        h3: (props) => (
+                          <h3
+                            className="pt-5 text-xl font-semibold"
+                            {...props}
+                          />
+                        ),
+                      }}
+                    />
+                  </>
+                );
+              }
+              case "BlogParagraphParagraphWithoutImage": {
                 return (
                   <>
                     <TinaMarkdown
