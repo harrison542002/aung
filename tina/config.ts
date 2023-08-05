@@ -23,7 +23,7 @@ export default defineConfig({
         format: "mdx",
         ui: {
           router: ({ document }) => {
-            return `/blog`;
+            return `/blog/${document._sys.filename}`;
           },
         },
         fields: [
