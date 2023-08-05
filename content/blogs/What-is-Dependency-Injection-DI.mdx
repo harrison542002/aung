@@ -1,0 +1,66 @@
+---
+title: What is Dependency Injection (DI)
+date: 2023-07-30T17:30:00.000Z
+intro: >
+  Disclaimer: ဤ article သည် OOP concepts ကို နားလည်ပြီးသားသူအတွက်ရည်ရွယ်ပါတယ်။ 
+
+
+  Dependency Injection (DI) ဆိုသည်မှာ object တစ်ခုက သူလိုအပ်သည့် object
+  (တနည်းအားဖြင့် dependency) ကို ကိုယ်တိုင် ဖန်တီးစရာ မဟုတ်ဘဲ အခြား framework
+  ကဖြစ်ဖြစ် container က ဖြစ်ဖြစ် create လုပ်ပေးခြင်းဘဲ ဖြစ်တယ်။
+paragraph:
+  - paragraph: >
+      ပုံမန်တမန်ရိုး ကျဆိုရင် object တခုဟာ သူလိုအပ်သည့် object ကို ကို့ကို new
+      keyword ဖြင့် ဖန်တီး  (instantiate) ရပါတယ်။ ဥပမာ - 
+
+
+      ```java
+
+      //Without DI public class Car { private Battery battery = new Battery(); }
+
+      ```
+
+
+      ဤ code အတိုင်းဆိုရင် car ဆိုသည့် object ဟာ battery ကို သုံးချင်တော့ car
+      manufacturer ကိုယ် တိုင်ကပြုလုပ် ရတယ်ပေါ့။ ခက်တာ ကဘာလည်းဆို battery က
+      တစ်ခုခု ဖြစ်သွားရင် ဘယ် အခြား third-party မှ ရှာလို့မရဘဲ သူတို့ကိုသူတို့
+      ဘဲ create လုပ်နိုင်တော့ dependent အရမ်း ဖြစ်တာပေါ့။ Car manufacturer က
+      သူတို့ battery တက်ဆင်တာကို သူတို့ ပင်ကို battery ဘဲ ဖြစ်ဖြစ် အခြား ထိုင်း
+      က လာတဲ့ battery တရုတ်လာတဲ့ battery တွေကို လည်း
+      အသုံးပြုနိုင်အောင်လုပ်ထားရင် battery က တစ်ခုခု ဖြစ်ရင် manufacturer ကိုရှာ
+      နေစရာ မလိုတော့ဘဲ interdependence ဖြစ်သွားတာပေါ့။  အောက်ပါ code scenario
+      မှာ တော့ constructor injection ကိုပြထားပါတယ်။ 
+
+
+      ```java
+
+      //With DI public class Car { private final Battery battery; //Constructor
+      Injection public Car(Battery battery) { this.battery = battery; } public
+      static void main(String[] args) { Battery batteryFromChina =
+      ChinaBattery.make(); Battery batteryFromThailand = ThailandBattery.make();
+      //Injection happens here Car car = new Car(batteryFromChina); } }
+
+      ```
+
+
+      ဤ code မှာဆိုရင် battery ဆိုသည့် object ဟာ အရင်ဆုံး manufacturer က create
+      လုပ်ပီးမှ car ဆိုသည့် object ထဲသို့ inject လုပ်၍ အသုံးပြုနိုင်ပါတယ်။
+      battery က ထိုင်းက လုပ်တာဘဲဖြစ်ဖြစ် တရုတ်က လုပ်တာဘဲဖြစ်ဖြစ် ပူစရာမလိုတော့ဘဲ
+      car က ကောက်သုံး လိုက်ရုံပါဘဲ။ ထို့အပြင် setter injection ကို အသုံးပြု၍လည်း
+      car မှာ အသုံးပြုနိုင်ပါသေးတယ်။ setter injection ရဲ့ အားသာချက်ဟာ ဤ
+      dependency အား လိုမှသာလျှင် inject လုပ်စရာလိုပါတယ်။ ဥပမာ - ဒီကားက
+      မီးလုံးလိုလားပေါ့။ မလိုရင်ထည့်စရာမလိုတော့ဘူး။ အထက် example ဟာ
+      ဥပမာပြခြင်းဘဲဖြစ်ပါတယ်။ real implementation မှာတော့ framework မှာရှိတဲ့
+      Injector ကနေတဆင့် object တွေ ကို inject လုပ်ပေးပါတယ်။ Dependency Injection
+      ကို အသုံးပြုခြင်းအားဖြင့် ရနိုင်မည့် ကောင်းကျိုးတွေကတော့ - object  တစ်ခုဟာ
+      အသုံးပြုမည့် dependency ကို ဘယ်လို create လုပ်ရမယ်လို့ သိစရာမလိုပါ။ -
+      အသုံးပြုနေတဲ့ object ကို ဘာမှ ပြောင်းနေစရာမလိုဘဲ၊ dependency တွေကို
+      အပြောင်းအလဲပြုလုပ်နိုင်ပါတယ်။ - Testing အပိုင်းမှာ dependency တွေကို mock
+      (အတု) လုပ်၍ test ရေးထားနိုင်တယ်။ စသည်တို့ဘဲဖြစ်ပါတယ်။ DI ကို အသုံးပြုရာ
+      တွင် “Coding to interface, not implementing” ဆိုတဲ့ principle ကိုတော့
+      လိုက်နာ ရပါတယ်။ ဤ principle အကြောင်းကို နောက် blog မှာ example နဲ့ တကွ
+      ရှင်းပြသွားပါမယ်ဗျာ။
+    paragraphImage: /blog//di.jpg
+    _template: paragraphWithImage
+---
+
