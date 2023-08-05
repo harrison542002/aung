@@ -4,18 +4,18 @@ This project is written in NextJS framework in the first time with integration o
 
 ## Features to be highlighted
 
-Visual Editing with Tina CMS
-Content storage in Markdown files.
-Animated Divs with Framer Motion
-Typing effect on sub titles.
+- Visual Editing with Tina CMS
+- Content storage in Markdown files.
+- Animated Divs with Framer Motion
+- Typing effect on sub titles.
 
 ## Tech Stack
 
-Framework - NextJS
-CSS library - Tailwind CSS
-Animation - Framer Motion
-Typed Effect - React Typed
-Language - TypeScript
+- Framework - NextJS
+- CSS library - Tailwind CSS
+- Animation - Framer Motion
+- Typed Effect - React Typed
+- Language - TypeScript
 
 ## Steps for installation and configure
 
