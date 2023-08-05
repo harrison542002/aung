@@ -52,6 +52,13 @@ const ActualBlog = (props: Props) => {
                       h3: (props) => (
                         <h3 className="pt-5 text-xl font-semibold" {...props} />
                       ),
+                      code_block: (props) => (
+                        <>
+                          <pre className="my-3 text-sm bg-gray-900 text-cyan-400 p-3 rounded-md overflow-x-auto">
+                            {props?.value}
+                          </pre>
+                        </>
+                      ),
                     }}
                   />
                 </>
