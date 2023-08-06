@@ -1,0 +1,29 @@
+---
+title: What is Inversion of Control
+date: 2023-06-27T17:30:00.000Z
+intro: >
+  Software တခု ရေးတဲ့ ချိန်မှာ dependency ပြသနာကို အမြဲလိုလို ကြုံ တွေ့ရပါတယ်။
+  ဟိုက ပြောင်းလိုက်ရင် ဒီကလည်း ပြန်ပြောင်းရနဲ့ workload တအားပေးပါတယ်။ Framework
+  တိုင်းဟာ လည်း classes or components တခုနဲ့ တခု interdependence ဖြစ်အောင်
+  ကြိုးစားကြပါတယ်။
+paragraph:
+  - paragraph: >
+      Inversion of control (IoC) ကတော့ classes အတွင်း loosely coupled ဖြစ်အောင်
+      implement လုပ်တဲ့ principle တမျိုးဖြစ်တယ် ( design pattern မဟုတ်ပါ။ ) IoC
+      ဟာ program control ကို developer တွေရေး ထားတဲ့ main program ကနေ framework
+      or container သို့ transfer လုပ်ပေးတယ်။ ရှင်းရှင်းပြောရရင် framework/
+      container က program တခုလုံး ရဲ့ control ယူထားပါတယ်။ 
+
+
+      ဤသို့ transfer ခြင်းအားဖြစ် developer တွေမှာ instantiated objects တွေ ၊
+      သူတို့ရဲ့ lifecycle တွေ ၊ project configuration တွေ ကို manage လုပ်စရာ
+      မလိုတော့ ဘဲ framework က inject လုပ်ထား တဲ့ object ကို business logic
+      မှာသုံးလိုက်ရုံပါဘဲ။ ထို design principle guideline ကို implement
+      လုပ်နိုင် တဲ့ pattern အမျိုးမျိုးရှိရာမှ dependency injection ကတော့
+      လူကြိုက်များ ဆုံးဖြစ်ပါတယ်။ Dependency injection (DI) ကို
+      အသုံးပြုခြင်းဖြင့် ဘာ ကောင်းကျိုး တွေရမလဲ ဆိုတာ ကို ဥပမာနဲ့ တကွ နောက် blog
+      မှာ ရှင်းသွားပါမယ်။
+    paragraphImage: /blog/ioc.jpg
+    _template: paragraphWithImage
+---
+
