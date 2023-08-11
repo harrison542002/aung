@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import navbarStyle from "./navbar.module.css";
 import SpacingLayout from "./SpacingLayout";
 import Image from "next/image";
@@ -10,6 +10,9 @@ import Image from "next/image";
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   const [open, setOpen] = useState(false);
   const path = usePathname();
   const links = [
@@ -23,9 +26,39 @@ const Navbar = (props: Props) => {
     setOpen(() => !open);
   };
 
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
+        setShow(false);
+      } else {
+        // if scroll up show the navbar
+        setShow(true);
+      }
+
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
   return (
     <>
-      <div className="bg-white/90 sticky top-0 z-30 border-b-2">
+      <div
+        className={`bg-white/90 sticky z-30 shadow-slate-100 shadow-sm transition-all duration-300 top-0 ${
+          show ? "translate-y-0" : "-translate-y-40"
+        }`}
+      >
         <SpacingLayout>
           <div className="py-3 flex justify-between">
             <div>

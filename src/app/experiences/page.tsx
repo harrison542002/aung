@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { leftslide, variant } from "../../util/animateVariants";
+import { variant } from "../../util/animateVariants";
 import {
   SiOpenai,
   SiExpress,
@@ -20,6 +20,7 @@ import { FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
 
 import "react-multi-carousel/lib/styles.css";
 import TypedHeading from "@/components/typeheading";
+import SpacingLayout from "@/components/SpacingLayout";
 
 type Props = {};
 
@@ -66,66 +67,68 @@ const ExperienceCard = ({
 
 function About({}: Props) {
   return (
-    <div className="lg:mx-20 mx-10 py-10">
-      <TypedHeading heading="Explores What I Have Done" />
-      <motion.div
-        transition={{ duration: 0.5, delay: 0.02 }}
-        variants={variant}
-        initial="initialState"
-        animate="animateState"
-      >
-        <div className="py-5">
-          <h2 className="text-cyan-500 font-bold">Career Experiences</h2>
-          <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 py-5">
-            <ExperienceCard
-              description="As a technology associate at Lithan, I am responsible to do R&D of how
-        to integrate OpenAI API into product management system along with PHP.
-        Beyond that, I am also responsible to create the product management
-        system from scratch with my teammate."
-              job_title="Software Technology Associate"
-              icons={
-                <>
-                  <SkillIcon icon={<BsFiletypePhp />} />
-                  <SkillIcon icon={<SiOpenai />} />
-                  <SkillIcon icon={<GrMysql />} />
-                </>
-              }
-            />
-            <ExperienceCard
-              description="As a NodeJS Backend Developer in PathwayPlus, I am responsible
-            to create a NodeJS backend engine along with Express and MongoDB
-            to manage proofreading sessions for different users.
-            Furthermore, APIs for admin panel are also implementated."
-              job_title="NodeJS Backend Developer"
-              icons={
-                <>
-                  <SkillIcon icon={<SiExpress />} />
-                  <SkillIcon icon={<SiMongodb />} />
-                  <SkillIcon icon={<SiVercel />} />
-                </>
-              }
-            />
+    <SpacingLayout>
+      <div className="py-10">
+        <TypedHeading heading="Explores What I Have Done" />
+        <motion.div
+          transition={{ duration: 0.5, delay: 0.02 }}
+          variants={variant}
+          initial="initialState"
+          animate="animateState"
+        >
+          <div className="py-5">
+            <h2 className="text-cyan-500 font-bold">Career Experiences</h2>
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 py-5">
+              <ExperienceCard
+                description="As a technology associate at Lithan, I am responsible to do R&D of how
+      to integrate OpenAI API into product management system along with PHP.
+      Beyond that, I am also responsible to create the product management
+      system from scratch with my teammate."
+                job_title="Software Technology Associate"
+                icons={
+                  <>
+                    <SkillIcon icon={<BsFiletypePhp />} />
+                    <SkillIcon icon={<SiOpenai />} />
+                    <SkillIcon icon={<GrMysql />} />
+                  </>
+                }
+              />
+              <ExperienceCard
+                description="As a NodeJS Backend Developer in PathwayPlus, I am responsible
+          to create a NodeJS backend engine along with Express and MongoDB
+          to manage proofreading sessions for different users.
+          Furthermore, APIs for admin panel are also implementated."
+                job_title="NodeJS Backend Developer"
+                icons={
+                  <>
+                    <SkillIcon icon={<SiExpress />} />
+                    <SkillIcon icon={<SiMongodb />} />
+                    <SkillIcon icon={<SiVercel />} />
+                  </>
+                }
+              />
+            </div>
           </div>
-        </div>
-        <div className="py-5">
-          <h2 className="text-cyan-500 font-bold">Skills I Have</h2>
-          <div className="lg:grid-cols-6 md:grid-cols-4 grid-cols-3 grid gap-10 py-5 ">
-            <SkillExpress icon={<FaReact />} />
-            <SkillExpress icon={<SiNextdotjs />} />
-            <SkillExpress icon={<SiExpress />} />
-            <SkillExpress icon={<SiMongodb />} />
-            <SkillExpress icon={<GrMysql />} />
-            <SkillExpress icon={<SiSpring />} />
-            <SkillExpress icon={<SiTailwindcss />} />
-            <SkillExpress icon={<BsFillBootstrapFill />} />
-            <SkillExpress icon={<SiTypescript />} />
-            <SkillExpress icon={<SiJavascript />} />
-            <SkillExpress icon={<FaHtml5 />} />
-            <SkillExpress icon={<FaCss3Alt />} />
+          <div className="py-5">
+            <h2 className="text-cyan-500 font-bold">Skills I Have</h2>
+            <div className="lg:grid-cols-6 md:grid-cols-4 grid-cols-3 grid gap-10 py-5 ">
+              <SkillExpress icon={<FaReact />} />
+              <SkillExpress icon={<SiNextdotjs />} />
+              <SkillExpress icon={<SiExpress />} />
+              <SkillExpress icon={<SiMongodb />} />
+              <SkillExpress icon={<GrMysql />} />
+              <SkillExpress icon={<SiSpring />} />
+              <SkillExpress icon={<SiTailwindcss />} />
+              <SkillExpress icon={<BsFillBootstrapFill />} />
+              <SkillExpress icon={<SiTypescript />} />
+              <SkillExpress icon={<SiJavascript />} />
+              <SkillExpress icon={<FaHtml5 />} />
+              <SkillExpress icon={<FaCss3Alt />} />
+            </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
+    </SpacingLayout>
   );
 }
 
