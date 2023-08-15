@@ -5,7 +5,12 @@ import { motion, useInView } from "framer-motion";
 import { variant } from "../../util/animateVariants";
 import Link from "next/link";
 import clsx from "clsx";
-import { SiTailwindcss, SiJavascript, SiJquery } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiJavascript,
+  SiJquery,
+  SiNextdotjs,
+} from "react-icons/si";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 import { BiLogoSpringBoot, BiLogoTypescript } from "react-icons/bi";
@@ -84,6 +89,20 @@ const Projects = (props: Props) => {
           </motion.h2>
           <div className="py-5 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10">
             <ProjectCard
+              project_title="Portfolio With Blogging"
+              description="This project is built using NextJS. The features offered by this app are Visual Editing with Tina CMS, Content storage in Markdown files, Animated Divs with Framer Motion, Typing effect on sub titles."
+              github="https://github.com/harrison542002/aung"
+              project_image={"/img/project-image/portfolio.png"}
+              icons={
+                <>
+                  <SiNextdotjs />
+                  <FaReact />
+                  <SiTailwindcss />
+                  <BiLogoTypescript />
+                </>
+              }
+            />
+            <ProjectCard
               project_title="Jumpstart E-commerce"
               description="This project is a real-world e-commerce website in which customer can
     order and add products into cart. Furthermore, admin and organization
@@ -102,33 +121,6 @@ const Projects = (props: Props) => {
               }
             />
             <ProjectCard
-              project_title="Car Sale Portal"
-              description="A portal for user to post new car for sale and get appointment. Admin panel is included for assign admin authority to user and manage car sale, manage appoinment as well as transaction."
-              github="https://github.com/harrison542002/car-sale-spring-boot"
-              project_image={"/img/project-image/carsale.png"}
-              icons={
-                <>
-                  <SiTailwindcss />
-                  <SiJavascript />
-                  <BiLogoSpringBoot />
-                  <GrMysql />
-                </>
-              }
-            />
-            <ProjectCard
-              project_title="Job Portal"
-              description="This project allows user to search, apply jobs and message to each other. STOMP which is sub-protocol of Websocket is used in real-time messaging feature."
-              github="https://github.com/harrison542002/JobPortal-spring-project"
-              project_image={"/img/project-image/jobportal.png"}
-              icons={
-                <>
-                  <SiJquery />
-                  <BsFillBootstrapFill />
-                  <BiLogoSpringBoot />
-                </>
-              }
-            />
-            <ProjectCard
               project_title="Merry Meal (team project)"
               description="This project is an e-commerce project in which user can order foods. Each role of user will posses unique dashboard. In the team, I performs as a leader."
               github="https://github.com/Khushboo004/Merry-Meal"
@@ -143,6 +135,21 @@ const Projects = (props: Props) => {
                 </>
               }
             />
+
+            <ProjectCard
+              project_title="Job Portal"
+              description="This project allows user to search, apply jobs and message to each other. STOMP which is sub-protocol of Websocket is used in real-time messaging feature."
+              github="https://github.com/harrison542002/JobPortal-spring-project"
+              project_image={"/img/project-image/jobportal.png"}
+              icons={
+                <>
+                  <SiJquery />
+                  <BsFillBootstrapFill />
+                  <BiLogoSpringBoot />
+                </>
+              }
+            />
+
             <ProjectCard
               project_title="Know Your Neighbourhood"
               description="This project focuses on demonstration of SpringBoot API on how user can authenticate based on JWT token-based authentication and with OAuth2 servers authentication along with React Frontend Application."
@@ -166,6 +173,20 @@ const Projects = (props: Props) => {
                   <FaHtml5 />
                   <FaCss3Alt />
                   <SiJquery />
+                </>
+              }
+            />
+            <ProjectCard
+              project_title="Car Sale Portal"
+              description="A portal for user to post new car for sale and get appointment. Admin panel is included for assign admin authority to user and manage car sale, manage appoinment as well as transaction."
+              github="https://github.com/harrison542002/car-sale-spring-boot"
+              project_image={"/img/project-image/carsale.png"}
+              icons={
+                <>
+                  <SiTailwindcss />
+                  <SiJavascript />
+                  <BiLogoSpringBoot />
+                  <GrMysql />
                 </>
               }
             />
