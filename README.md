@@ -1,6 +1,6 @@
 # My latest portfolio with NextJS
 
-This project is written in NextJS framework in the first time with integration of CMS for content blogging of my interest.
+This project is written in NextJS framework with integration of CMS for content blogging of my interest.
 
 ## Features to be highlighted
 
