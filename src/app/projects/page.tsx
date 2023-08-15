@@ -14,7 +14,7 @@ import {
 import { BsFillBootstrapFill } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 import { BiLogoSpringBoot, BiLogoTypescript } from "react-icons/bi";
-import { FaGithub, FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { FaGithub, FaReact, FaHtml5, FaCss3Alt, FaEye } from "react-icons/fa";
 import SpacingLayout from "@/components/SpacingLayout";
 import TypedHeading from "@/components/typeheading";
 type Props = {};
@@ -25,8 +25,10 @@ const ProjectCard = ({
   description,
   project_image,
   icons,
+  view,
 }: {
-  github: string;
+  github?: string;
+  view?: string;
   project_title: string;
   description: string;
   project_image: string;
@@ -48,9 +50,16 @@ const ProjectCard = ({
           <div className="absolute bg-black rounded-t-md w-full h-full group-hover:opacity-30 opacity-0 transition-all duration-500">
             <div className="text-white flex justify-center items-center h-full w-full">
               <div>
-                <Link href={github} target="_blank">
-                  <FaGithub size={50} className="opacity-100" />
-                </Link>
+                {github && (
+                  <Link href={github} target="_blank">
+                    <FaGithub size={50} className="opacity-100" />
+                  </Link>
+                )}
+                {view && (
+                  <Link href={view} target="_blank">
+                    <FaEye size={50} className="opacity-100" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -85,14 +94,14 @@ const Projects = (props: Props) => {
             animate={"animateState"}
             className="text-cyan-500 font-bold"
           >
-            Personal And Academic Projects
+            Personal and Academic Projects
           </motion.h2>
           <div className="py-5 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10">
             <ProjectCard
-              project_title="Portfolio With Blogging"
-              description="This project is built using NextJS. The features offered by this app are Visual Editing with Tina CMS, Content storage in Markdown files, Animated Divs with Framer Motion, Typing effect on sub titles."
-              github="https://github.com/harrison542002/aung"
-              project_image={"/img/project-image/portfolio.png"}
+              project_title="Whizz Web Landing Page"
+              description="This project is to design a company landing page for a service provide called Whizz Web. Animation and cursor effects were implemented to interate with visitiors."
+              view="https://whizzweb.tech/"
+              project_image={"/img/project-image/whizzweb.tech.png"}
               icons={
                 <>
                   <SiNextdotjs />
@@ -121,21 +130,33 @@ const Projects = (props: Props) => {
               }
             />
             <ProjectCard
-              project_title="Merry Meal (team project)"
-              description="This project is an e-commerce project in which user can order foods. Each role of user will posses unique dashboard. In the team, I performs as a leader."
-              github="https://github.com/Khushboo004/Merry-Meal"
-              project_image={"/img/project-image/merrymeal.png"}
+              project_title="Portfolio With Blogging"
+              description="This project is built using NextJS. The features offered by this app are Visual Editing with Tina CMS, Content storage in Markdown files, Animated Divs with Framer Motion, Typing effect on sub titles."
+              github="https://github.com/harrison542002/aung"
+              project_image={"/img/project-image/portfolio.png"}
               icons={
                 <>
+                  <SiNextdotjs />
                   <FaReact />
                   <SiTailwindcss />
                   <BiLogoTypescript />
+                </>
+              }
+            />
+            <ProjectCard
+              project_title="Car Sale Portal"
+              description="A portal for user to post new car for sale and get appointment. Admin panel is included for assign admin authority to user and manage car sale, manage appoinment as well as transaction."
+              github="https://github.com/harrison542002/car-sale-spring-boot"
+              project_image={"/img/project-image/carsale.png"}
+              icons={
+                <>
+                  <SiTailwindcss />
+                  <SiJavascript />
                   <BiLogoSpringBoot />
                   <GrMysql />
                 </>
               }
             />
-
             <ProjectCard
               project_title="Job Portal"
               description="This project allows user to search, apply jobs and message to each other. STOMP which is sub-protocol of Websocket is used in real-time messaging feature."
@@ -149,17 +170,18 @@ const Projects = (props: Props) => {
                 </>
               }
             />
-
             <ProjectCard
-              project_title="Know Your Neighbourhood"
-              description="This project focuses on demonstration of SpringBoot API on how user can authenticate based on JWT token-based authentication and with OAuth2 servers authentication along with React Frontend Application."
-              github="https://github.com/harrison542002/know-your-neighbour-bk"
-              project_image={"/img/project-image/kn.png"}
+              project_title="Merry Meal (team project)"
+              description="This project is an e-commerce project in which user can order foods. Each role of user will posses unique dashboard. In the team, I performs as a leader."
+              github="https://github.com/Khushboo004/Merry-Meal"
+              project_image={"/img/project-image/merrymeal.png"}
               icons={
                 <>
-                  <FaHtml5 />
-                  <FaCss3Alt />
-                  <SiJquery />
+                  <FaReact />
+                  <SiTailwindcss />
+                  <BiLogoTypescript />
+                  <BiLogoSpringBoot />
+                  <GrMysql />
                 </>
               }
             />
@@ -177,16 +199,15 @@ const Projects = (props: Props) => {
               }
             />
             <ProjectCard
-              project_title="Car Sale Portal"
-              description="A portal for user to post new car for sale and get appointment. Admin panel is included for assign admin authority to user and manage car sale, manage appoinment as well as transaction."
-              github="https://github.com/harrison542002/car-sale-spring-boot"
-              project_image={"/img/project-image/carsale.png"}
+              project_title="Know Your Neighbourhood"
+              description="This project focuses on demonstration of SpringBoot API on how user can authenticate based on JWT token-based authentication and with OAuth2 servers authentication along with React Frontend Application."
+              github="https://github.com/harrison542002/know-your-neighbour-bk"
+              project_image={"/img/project-image/kn.png"}
               icons={
                 <>
-                  <SiTailwindcss />
-                  <SiJavascript />
-                  <BiLogoSpringBoot />
-                  <GrMysql />
+                  <FaHtml5 />
+                  <FaCss3Alt />
+                  <SiJquery />
                 </>
               }
             />
