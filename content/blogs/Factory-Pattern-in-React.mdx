@@ -1,0 +1,44 @@
+---
+title: Factory Pattern in React
+date: 2023-08-15T17:30:00.000Z
+intro: >
+  Server side language တွေမှာ အသုံးများတဲ့ factory pattern ကို react မှာ real
+  world စံစံ ဘယ်လိုသုံးကြမလဲ။ တစ်ခုတော့ ရှိတယ် typescript နဲ့တော့
+  ရေးရပါလိမ့်မယ်။
+paragraph:
+  - paragraph: >
+      React ရေးတဲ့ ခါမှာ လူတိုင်း ternary operator ကို အမြဲ လိုလို သုံးကြမယ်
+      ထင်ပါတယ်။ ဥပမာ - user က admin လား ၊ ရိုးရိုး user လား ၊ department
+      အလိုက်လား ဆိုပြီး dashboard ကိုယ်စီ ရှိကြတတ်ပါတယ်။ များသောအားဖြင့် ဒီလို
+      အခြေအနေ မှာ ternary operator နဲ့ user role ကို စစ်ပြီး dashboard view ကို
+      ပြလိမ့်ရှိပါတယ်။ ပြသနာက dashboard အသစ်တစ်ခု ရှိတိုင်း ပထမ ဆုံး အဆင့် user
+      မှာ role အသစ် ပြန်ထည့်ရမယ် ဒုတိယအဆင့် နဂိုက ရေးထားတဲ့ dashboard page မှာ
+      user role အသစ်စစ်ပြီးတော့ dashboard component အသစ်ကို ternary operator မှာ
+      ရှည်လမျေား ရေးရပါတယ်။ အဲ့ချိန်မှာ code က readability ကျသွားရော။
+
+
+      အဲ့ဒီအစား အစိမ်းရောင် အမှန်ခြစ်ပြထားသည့် code အတိုင်း dashboard variable
+      တစ်ခုကို enum အနေဖြင့် role နဲ့ ဆက်စပ်တဲ့ dashboard component ကို key
+      value pair တစ်ခု တည်ဆောက်လိုက်မယ်။ ပြီးလျှင် UserProps interface အတွင်း
+      user object type ကို role နဲ့တကွ define လုပ်လိုက်မယ်။ role ၏ type ကတော့
+      keyof typeof ကို သုံး၍ dashboard variable ကနေ ‘normal’ | ‘admin’ ဆို ပြီး
+      define လုပ်လိုက်ခြင်းဖြစ်တယ်။ ဆိုလိုတာ role ဆိုသည့် key သည် normal or
+      admin နှစ်ခုဘဲ value ပေးလို့ရမယ်ပေါ့။ ယခု အဆင့်ထိက factory
+      တည်ဆောက်လိုက်တာပါဘဲ။
+
+
+      အဲ့ဒီ factory ကို အောက်က Dashboard ဆိုသည့် component မှာ UserDashboard က
+      dashboard ဆိုသည့် object ကို ခေါ်ပြီးတော့ user ဆိုသည့် prop ကနေ role
+      ကိုယူ၍ key နဲ့ကိုက်တဲ့ component ကို ခေါ်ယူတယ်။ ternary operator အရှည်ကြီး
+      ရေးစရာမလိုတော့ ဘဲ Dashboard component မှာ UserDashboard တစ်ခုသာ
+      တွေ့ရတော့မှာပါ။  sale dashboard အသစ် တစ်ခု ထပ်တည့်မယ် ဆိုပါဆို့ dashboard
+      enum variable မှာsale : SaleDashboard လို့ ထပ်ရေးလိုက်ရုံနဲ့ ပြီး
+      သွားပါပြီ။ ကျန်တာ ပြောင်းစရာမလိုတော့ဘူး။
+
+
+      ထိုနည်းဖြင့် react code base ကို readable နဲ့ maintainable ဖြစ်ဖြစ်
+      ရေးနိုင်ပါတယ်။
+    paragraphImage: /blog/react-factory.png
+    _template: paragraphWithImage
+---
+
