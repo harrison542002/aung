@@ -68,7 +68,7 @@ const Home = () => {
             >
               <p className="lg:py-8 md:py-8 py-5 text-sm text-justify">
                 <b className="block text-base">An Ambitious Youth On CS</b> I
-                have been working and learning on software dev since 2020 and
+                have been working and learning on software dev since 2021 and
                 created lots of personal, academic and commercial projects. As a
                 person, I am optimistic, passionate, fast to learn and timely on
                 deadline.
