@@ -13,7 +13,7 @@ type Prop = {
 };
 const BlogCard = (props: Prop) => {
   return (
-    <div className="bg-gray-50 border p-5 w-full rounded-md shadow-md text-gray-800">
+    <div className="bg-gray-50 border p-5 w-full  shadow-md text-gray-800">
       <h3 className="text-2xl font-semibold">{props.title}</h3>
       <p className="text-xs text-gray-400 ">
         {formatDate(props.date as string)}
@@ -23,7 +23,7 @@ const BlogCard = (props: Prop) => {
           content={props.intro}
           components={{
             p: (props) => (
-              <p className="text-xs text-justify lg:h-20 overflow-hidden">
+              <p className="text-sm text-justify lg:h-20 overflow-hidden">
                 {props?.children} {"..."}
               </p>
             ),

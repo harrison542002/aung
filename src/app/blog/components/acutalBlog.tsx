@@ -7,8 +7,8 @@ import formatDate from "@/lib/formatDate";
 import { AiOutlineLeft } from "react-icons/ai";
 import Link from "next/link";
 import Image from "next/image";
-import hljs from "highlight.js";
-import "highlight.js/styles/github.css";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 type Props = {
   data: BlogQuery;
@@ -17,31 +17,20 @@ type Props = {
 };
 
 const ActualBlog = (props: Props) => {
-  useEffect(() => {
-    document.querySelectorAll("pre").forEach((el: any) => {
-      hljs.highlightElement(el);
-    });
-  }, []);
   const { data } = useTina(props);
   return (
-    <div className="lg:p-10 md:p-5 xl:p-12 p-4 text-gray-800">
-      <Link href={"/blog"}>
-        <div className="text-gray-600 flex items-center gap-3 group lg:text-base md:text-base xl:text-base text-xs mb-5">
-          <AiOutlineLeft className="group-hover:-translate-x-2 transition-transform duration-500" />
-          <p>Back To Blog Lists</p>
-        </div>
-      </Link>
-      <h2 className="lg:text-6xl xl:text-8xl md:text-5xl text-3xl font-semibold">
+    <div className="lg:p-10 md:p-5 xl:p-12 p-4 text-gray-800 text-lg leading-8">
+      <h2 className="lg:text-7xl xl:text-8xl text-5xl font-semibold">
         {data.blog.title}
       </h2>
-      <p className="text-xs text-gray-400 pt-3">
+      <p className="text-md text-gray-400 pt-3">
         {formatDate(data.blog.date as string)}
       </p>
-      <div className="py-3 text-sm">
+      <div className="py-3">
         <TinaMarkdown
           content={data.blog.intro}
           components={{
-            p: (props) => <p className="my-5 " {...props} />,
+            p: (props) => <p className="my-5" {...props} />,
           }}
         />
         {data.blog.paragraph?.map((p) => {
@@ -67,11 +56,9 @@ const ActualBlog = (props: Props) => {
                         <h3 className="pt-5 text-xl font-semibold" {...props} />
                       ),
                       code_block: (props) => (
-                        <>
-                          <pre className="lg:my-8 md:my-5 my-4 text-sm p-3 rounded-md overflow-x-auto border">
-                            {props?.value}
-                          </pre>
-                        </>
+                        <SyntaxHighlighter style={docco} showLineNumbers={true}>
+                          {props?.value as string}
+                        </SyntaxHighlighter>
                       ),
                     }}
                   />
@@ -84,7 +71,7 @@ const ActualBlog = (props: Props) => {
                   <TinaMarkdown
                     content={p.paragraph}
                     components={{
-                      p: (props) => <p className="" {...props} />,
+                      p: (props) => <p className="my-5" {...props} />,
                       h3: (props) => (
                         <h3 className="pt-5 text-xl font-semibold" {...props} />
                       ),
@@ -96,6 +83,12 @@ const ActualBlog = (props: Props) => {
           }
         })}
       </div>
+      <Link href={"/blog"}>
+        <button className="flex justify-start hover:bg-gray-800 hover:text-slate-50 transition-all duration-500 ease-in-out items-center gap-3 group lg:text-base md:text-base xl:text-base text-sm mb-5 border rounded-lg p-2 border-gray-800">
+          <AiOutlineLeft />
+          <p>Go Back</p>
+        </button>
+      </Link>
     </div>
   );
 };
