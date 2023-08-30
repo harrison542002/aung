@@ -5,8 +5,8 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import formatDate from "@/lib/formatDate";
 import { AiOutlineLeft } from "react-icons/ai";
 import Link from "next/link";
-import Image from "next/image";
-import CodeBlock from "./codeBlock";
+import BlogWithImage from "./blogWithImg";
+import BlogWithoutImage from "./blogWithoutImg";
 
 type Props = {
   data: BlogQuery;
@@ -36,56 +36,14 @@ const ActualBlog = (props: Props) => {
             case "BlogParagraphParagraphWithImage": {
               return (
                 <>
-                  <div className="flex justify-center items-center">
-                    <div className="relative aspect-video my-10 shadow-md w-full max-w-xl h-auto border">
-                      <Image
-                        src={p.paragraphImage as string}
-                        fill
-                        alt="blogging"
-                        className="absolute"
-                      />
-                    </div>
-                  </div>
-                  <TinaMarkdown
-                    content={p.paragraph}
-                    components={{
-                      p: (props) => <p className="my-5" {...props} />,
-                      h3: (props) => (
-                        <h3 className="pt-5 text-xl font-semibold" {...props} />
-                      ),
-                      code_block: (props) => (
-                        <>
-                          <CodeBlock
-                            code={props?.value as string}
-                            lang={props?.lang}
-                          />
-                        </>
-                      ),
-                    }}
-                  />
+                  <BlogWithImage {...p} />
                 </>
               );
             }
             case "BlogParagraphParagraphWithoutImage": {
               return (
                 <>
-                  <TinaMarkdown
-                    content={p.paragraph}
-                    components={{
-                      p: (props) => <p className="my-5" {...props} />,
-                      h3: (props) => (
-                        <h3 className="pt-5 text-xl font-semibold" {...props} />
-                      ),
-                      code_block: (props) => (
-                        <>
-                          <CodeBlock
-                            code={props?.value as string}
-                            lang={props?.lang}
-                          />
-                        </>
-                      ),
-                    }}
-                  />
+                  <BlogWithoutImage {...p} />
                 </>
               );
             }
