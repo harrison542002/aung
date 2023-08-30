@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import { BlogQuery } from "../../../../tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
@@ -7,8 +6,7 @@ import formatDate from "@/lib/formatDate";
 import { AiOutlineLeft } from "react-icons/ai";
 import Link from "next/link";
 import Image from "next/image";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import CodeBlock from "./codeBlock";
 
 type Props = {
   data: BlogQuery;
@@ -56,9 +54,12 @@ const ActualBlog = (props: Props) => {
                         <h3 className="pt-5 text-xl font-semibold" {...props} />
                       ),
                       code_block: (props) => (
-                        <SyntaxHighlighter style={docco} showLineNumbers={true}>
-                          {props?.value as string}
-                        </SyntaxHighlighter>
+                        <>
+                          <CodeBlock
+                            code={props?.value as string}
+                            lang={props?.lang}
+                          />
+                        </>
                       ),
                     }}
                   />
@@ -74,6 +75,14 @@ const ActualBlog = (props: Props) => {
                       p: (props) => <p className="my-5" {...props} />,
                       h3: (props) => (
                         <h3 className="pt-5 text-xl font-semibold" {...props} />
+                      ),
+                      code_block: (props) => (
+                        <>
+                          <CodeBlock
+                            code={props?.value as string}
+                            lang={props?.lang}
+                          />
+                        </>
                       ),
                     }}
                   />
