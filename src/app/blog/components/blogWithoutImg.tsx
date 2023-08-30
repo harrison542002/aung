@@ -3,7 +3,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { BlogParagraphParagraphWithoutImage } from "../../../../tina/__generated__/types";
 import CodeBlock from "./codeBlock";
 
-const BlogWithoutImage = async (props: BlogParagraphParagraphWithoutImage) => {
+const BlogWithoutImage = (props: BlogParagraphParagraphWithoutImage) => {
   return (
     <div>
       <TinaMarkdown

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import CodeBlock from "./codeBlock";
 
-const BlogWithImage = async (props: BlogParagraphParagraphWithImage) => {
+const BlogWithImage = (props: BlogParagraphParagraphWithImage) => {
   return (
     <>
       <div className="flex justify-center items-center">
