@@ -7,6 +7,7 @@ import { leftslide, rightslide } from "../util/animateVariants";
 import { FiDownload } from "react-icons/fi";
 import SpacingLayout from "@/components/SpacingLayout";
 import TypedHeading from "@/components/typeheading";
+import Button from "../components/Button";
 
 const EduCard = ({
   img,
@@ -28,7 +29,7 @@ const EduCard = ({
           height={50}
           alt="Lithan"
           className="rounded-full border shadow-sm"
-        ></Image>
+        />
       </div>
       <h3 className="lg:text-sm text-xs font-semibold">{school}</h3>
       <h4 className="lg:text-lg text-base py-1">{certificate}</h4>
@@ -108,12 +109,15 @@ const Home = () => {
                   date="2019 - 2020"
                 />
               </div>
-              <Link href="/experiences">
-                <button className="shadow-md lg:p-3 md:p-2 p-2 lg:text-lg md:text-base text-sm bg-slate-950 my-5 text-slate-100 rounded-md hover:text-cyan-400 transition-all duration-700">
-                  <p className="inline-block">Explore My Experiences</p>
-                  <BsArrowUpRightSquare className="inline-block lg:ml-3 md:ml-2 ml-2" />
-                </button>
-              </Link>
+              <Button
+                href="/experiences"
+                content={
+                  <>
+                    <p className="inline-block">Explore My Experiences</p>
+                    <BsArrowUpRightSquare className="inline-block lg:ml-3 md:ml-2 ml-2" />
+                  </>
+                }
+              />
             </motion.div>
           </div>
         </div>

@@ -14,13 +14,18 @@ import {
   SiTypescript,
   SiJavascript,
 } from "react-icons/si";
-import { BsFiletypePhp, BsFillBootstrapFill } from "react-icons/bs";
+import {
+  BsArrowUpRightSquare,
+  BsFiletypePhp,
+  BsFillBootstrapFill,
+} from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 import { FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
 
 import "react-multi-carousel/lib/styles.css";
 import TypedHeading from "@/components/typeheading";
 import SpacingLayout from "@/components/SpacingLayout";
+import Button from "../../components/Button";
 
 type Props = {};
 
@@ -125,6 +130,17 @@ function About({}: Props) {
               <SkillExpress icon={<FaHtml5 />} />
               <SkillExpress icon={<FaCss3Alt />} />
             </div>
+          </div>
+          <div className="py-2 flex justify-center">
+            <Button
+              href="/projects"
+              content={
+                <>
+                  <p className="inline-block">See My Projects</p>
+                  <BsArrowUpRightSquare className="inline-block lg:ml-3 md:ml-2 ml-2" />
+                </>
+              }
+            />
           </div>
         </motion.div>
       </div>

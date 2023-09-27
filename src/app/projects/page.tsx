@@ -1,85 +1,22 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import { variant } from "../../util/animateVariants";
-import Link from "next/link";
-import clsx from "clsx";
+import { motion } from "framer-motion";
 import {
   SiTailwindcss,
   SiJavascript,
   SiJquery,
   SiNextdotjs,
 } from "react-icons/si";
-import { BsFillBootstrapFill } from "react-icons/bs";
+import { BsArrowUpRightSquare, BsFillBootstrapFill } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 import { BiLogoSpringBoot, BiLogoTypescript } from "react-icons/bi";
-import { FaGithub, FaReact, FaHtml5, FaCss3Alt, FaEye } from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import SpacingLayout from "@/components/SpacingLayout";
 import TypedHeading from "@/components/typeheading";
+import ProjectCard from "./components/ProjectCard";
+import Button from "../../components/Button";
 type Props = {};
-
-const ProjectCard = ({
-  github,
-  project_title,
-  description,
-  project_image,
-  icons,
-  view,
-}: {
-  github?: string;
-  view?: string;
-  project_title: string;
-  description: string;
-  project_image: string;
-  icons: React.ReactNode;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "20% 0% 0% 0%" });
-  return (
-    <div>
-      <div
-        ref={ref}
-        className={clsx(
-          `text-slate-100 rounded-md border shadow-md group transition-all duration-500 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`
-        )}
-      >
-        <div className="relative">
-          <div className="absolute bg-black rounded-t-md w-full h-full group-hover:opacity-30 opacity-0 transition-all duration-500">
-            <div className="text-white flex justify-center items-center h-full w-full">
-              <div>
-                {github && (
-                  <Link href={github} target="_blank">
-                    <FaGithub size={50} className="opacity-100" />
-                  </Link>
-                )}
-                {view && (
-                  <Link href={view} target="_blank">
-                    <FaEye size={50} className="opacity-100" />
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-          <img
-            src={project_image}
-            alt={project_title}
-            className="rounded-t-md"
-          />
-        </div>
-        <div className="p-5 bg-black rounded-b-md">
-          <h3 className="lg:text-2xl md:text-xl text-lg font-semibold ">
-            {project_title}
-          </h3>
-          <p className="lg:text-sm text-xs py-5 text-justify">{description}</p>
-          <div className="flex gap-3 text-xl py-3">{icons}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Projects = (props: Props) => {
   return (
@@ -208,6 +145,17 @@ const Projects = (props: Props) => {
                   <FaHtml5 />
                   <FaCss3Alt />
                   <SiJquery />
+                </>
+              }
+            />
+          </div>
+          <div className="py-2 flex justify-center">
+            <Button
+              href="/contact"
+              content={
+                <>
+                  <p className="inline-block">Let's Discuss With Me!</p>
+                  <BsArrowUpRightSquare className="inline-block lg:ml-3 md:ml-2 ml-2" />
                 </>
               }
             />
