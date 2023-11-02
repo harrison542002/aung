@@ -14,7 +14,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: blog.data.blog.title,
     keywords: [blog.data.blog.title],
-    description: blog.data.blog.intro,
+    openGraph: {
+      title: blog.data.blog.title,
+      siteName: "Aung Thiha Htun | Full-Stack Developer",
+      url: "https://aung-omega.vercel.app/",
+      type: "website",
+      images: [
+        {
+          url: "https://aung-omega.vercel.app/img/profile.jpg",
+          alt: "Aung Thiha Htun",
+        },
+      ],
+    },
   };
 }
 
