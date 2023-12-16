@@ -32,7 +32,15 @@ const ProjectCard = ({
           }`
         )}
       >
-        <div className="relative">
+        <div className="relative h-96">
+          <Image
+            src={project_image}
+            alt={project_title}
+            className="rounded-t-md object-cover object-top"
+            fill
+            // width={500}
+            // height={30}
+          />
           <div className="absolute bg-black rounded-t-md w-full h-full group-hover:opacity-30 opacity-0 transition-all duration-500">
             <div className="text-white flex justify-center items-center h-full w-full">
               <div>
@@ -49,13 +57,6 @@ const ProjectCard = ({
               </div>
             </div>
           </div>
-          <Image
-            src={project_image}
-            alt={project_title}
-            className="rounded-t-md"
-            width={500}
-            height={30}
-          />
         </div>
         <div className="p-5 bg-black rounded-b-md">
           <h3 className="lg:text-2xl md:text-xl text-lg font-semibold ">

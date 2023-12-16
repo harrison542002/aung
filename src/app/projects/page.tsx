@@ -33,10 +33,10 @@ const Projects = (props: Props) => {
           >
             Personal and Academic Projects
           </motion.h2>
-          <div className="py-5 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10">
+          <div className="py-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10">
             <ProjectCard
               project_title="Whizz Web Landing Page"
-              description="This project is to design a company landing page for a service provide called Whizz Web. Animation and cursor effects were implemented to interate with visitiors."
+              description="This project is to design a company landing page for a service provider called Whizz Web. Animation and cursor effects were implemented to interate with visitiors."
               view="https://whizzweb.tech/"
               project_image={"/img/project-image/whizzweb.tech.png"}
               icons={
