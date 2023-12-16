@@ -13,6 +13,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiJavascript,
+  SiReact,
 } from "react-icons/si";
 import {
   BsArrowUpRightSquare,
@@ -29,6 +30,21 @@ import Button from "../../components/Button";
 
 type Props = {};
 
+const icons = [
+  <FaReact />,
+  <SiNextdotjs />,
+  <SiExpress />,
+  <SiMongodb />,
+  <GrMysql />,
+  <SiSpring />,
+  <SiTailwindcss />,
+  <BsFillBootstrapFill />,
+  <SiTypescript />,
+  <SiJavascript />,
+  <FaHtml5 />,
+  <FaCss3Alt />,
+];
+
 const SkillIcon = ({ icon }: { icon: React.ReactNode }) => {
   return (
     <div className="border-cyan-500 border-2 p-2 rounded-md text-cyan-500">
@@ -39,7 +55,7 @@ const SkillIcon = ({ icon }: { icon: React.ReactNode }) => {
 
 const SkillExpress = ({ icon }: { icon: React.ReactNode }) => {
   return (
-    <div className="lg:text-7xl md:text-6xl text-5xl flex justify-center items-center border-gray-900 border-2 p-2 rounded-md text-white bg-black aspect-square hover:bg-white hover:text-black transition-all duration-500">
+    <div className="lg:text-7xl md:text-6xl text-5xl flex justify-center items-center border-gray-900 border-2  rounded-md text-white bg-black aspect-square hover:bg-white hover:text-black transition-all duration-500">
       {icon}
     </div>
   );
@@ -48,27 +64,79 @@ const SkillExpress = ({ icon }: { icon: React.ReactNode }) => {
 const ExperienceCard = ({
   description,
   job_title,
+  company,
   icons,
+  period,
 }: {
   description: string;
   job_title: string;
+  company: string;
   icons: React.ReactNode;
+  period: string;
 }) => {
   return (
     <div className="p-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-md shadow-md border">
-      <p className="text-justify lg:text-sm md:text-sm text-xs">
-        {description}
-      </p>
-      <h2 className="font-semibold lg:text-2xl md:text-xl text-lg py-5">
+      <h2 className="font-semibold lg:text-2xl md:text-xl text-lg">
         {job_title}
       </h2>
+      <h3 className="lg:text-xl md:text-lg">{company}</h3>
+      <p className="text-justify lg:text-sm md:text-sm text-xs py-5">
+        {description}
+      </p>
       <div className="text-xl flex gap-5">{icons}</div>
       <div>
-        <p className="text-gray-500 text-xs pt-5">Dec 2022 - Apr 2023</p>
+        <p className="text-gray-500 text-xs pt-5">{period}</p>
       </div>
     </div>
   );
 };
+
+[,];
+const experiences = [
+  {
+    description:
+      "Responsible for the developmenet of full stack applications and communication with clients with different channels. The project areas comprise of e-commerce, LMS, Video Streaming, CMS and more.",
+    job_title: "Full Stack Software Developer",
+    icons: (
+      <>
+        <SkillIcon icon={<BsFiletypePhp />} />
+        <SkillIcon icon={<SiExpress />} />
+        <SkillIcon icon={<SiReact />} />
+        <SkillIcon icon={<GrMysql />} />
+      </>
+    ),
+    period: "Aug 2023 - Present",
+    company: "Viabells",
+  },
+  {
+    description:
+      "As a technology associate in Lithan, I am responsible to do R&D of how to integrate OpenAI API into product management system along with PHP and MySQL. Beyond that, I am also responsible to create the product management system from scratch with my teammate.",
+    job_title: "Software Technology Associate",
+    icons: (
+      <>
+        <SkillIcon icon={<BsFiletypePhp />} />
+        <SkillIcon icon={<SiOpenai />} />
+        <SkillIcon icon={<GrMysql />} />
+      </>
+    ),
+    period: "Apr 2023 - Jul 2023",
+    company: "Lithan eduClass",
+  },
+  {
+    description:
+      "As a NodeJS Backend Developer in PathwayPlus, I am responsible to create a NodeJS backend engine along with Express and MongoDB to manage proofreading sessions for different users. Furthermore, APIs for admin panel are also implementated.",
+    job_title: "NodeJS Backend Developer",
+    icons: (
+      <>
+        <SkillIcon icon={<SiExpress />} />
+        <SkillIcon icon={<SiMongodb />} />
+        <SkillIcon icon={<SiVercel />} />
+      </>
+    ),
+    period: "Dec 2022 - Apr 2023",
+    company: "PathwayPlus",
+  },
+];
 
 function About({}: Props) {
   return (
@@ -83,52 +151,22 @@ function About({}: Props) {
         >
           <div className="py-5">
             <h2 className="text-cyan-500 font-bold">Career Experiences</h2>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 py-5">
-              <ExperienceCard
-                description="As a technology associate at Lithan, I am responsible to do R&D of how
-      to integrate OpenAI API into product management system along with PHP.
-      Beyond that, I am also responsible to create the product management
-      system from scratch with my teammate."
-                job_title="Software Technology Associate"
-                icons={
-                  <>
-                    <SkillIcon icon={<BsFiletypePhp />} />
-                    <SkillIcon icon={<SiOpenai />} />
-                    <SkillIcon icon={<GrMysql />} />
-                  </>
-                }
-              />
-              <ExperienceCard
-                description="As a NodeJS Backend Developer in PathwayPlus, I am responsible
-          to create a NodeJS backend engine along with Express and MongoDB
-          to manage proofreading sessions for different users.
-          Furthermore, APIs for admin panel are also implementated."
-                job_title="NodeJS Backend Developer"
-                icons={
-                  <>
-                    <SkillIcon icon={<SiExpress />} />
-                    <SkillIcon icon={<SiMongodb />} />
-                    <SkillIcon icon={<SiVercel />} />
-                  </>
-                }
-              />
+            <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 py-5">
+              {experiences.map((experience) => (
+                <>
+                  <ExperienceCard {...experience} />
+                </>
+              ))}
             </div>
           </div>
           <div className="py-5">
             <h2 className="text-cyan-500 font-bold">Skills I Have</h2>
-            <div className="lg:grid-cols-6 md:grid-cols-4 grid-cols-3 grid gap-10 py-5 ">
-              <SkillExpress icon={<FaReact />} />
-              <SkillExpress icon={<SiNextdotjs />} />
-              <SkillExpress icon={<SiExpress />} />
-              <SkillExpress icon={<SiMongodb />} />
-              <SkillExpress icon={<GrMysql />} />
-              <SkillExpress icon={<SiSpring />} />
-              <SkillExpress icon={<SiTailwindcss />} />
-              <SkillExpress icon={<BsFillBootstrapFill />} />
-              <SkillExpress icon={<SiTypescript />} />
-              <SkillExpress icon={<SiJavascript />} />
-              <SkillExpress icon={<FaHtml5 />} />
-              <SkillExpress icon={<FaCss3Alt />} />
+            <div className="xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 grid-cols-3 grid gap-10 py-5 ">
+              {icons.map((icon) => (
+                <>
+                  <SkillExpress icon={icon} />
+                </>
+              ))}
             </div>
           </div>
           <div className="py-2 flex justify-center">
