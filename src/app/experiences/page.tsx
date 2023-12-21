@@ -91,11 +91,10 @@ const ExperienceCard = ({
   );
 };
 
-[,];
 const experiences = [
   {
     description:
-      "Responsible for the developmenet of full stack applications and communication with clients with different channels. The project areas comprise of e-commerce, LMS, Video Streaming, CMS and more.",
+      "Responsible for the developmenet of full stack applications and communicating with different clients to identify requirements. The areas of project comprise of e-commerce, LMS, Video Streaming, CMS and so on.",
     job_title: "Full Stack Software Developer",
     icons: (
       <>
@@ -121,20 +120,6 @@ const experiences = [
     ),
     period: "Apr 2023 - Jul 2023",
     company: "Lithan eduClass",
-  },
-  {
-    description:
-      "As a NodeJS Backend Developer in PathwayPlus, I am responsible to create a NodeJS backend engine along with Express and MongoDB to manage proofreading sessions for different users. Furthermore, APIs for admin panel are also implementated.",
-    job_title: "NodeJS Backend Developer",
-    icons: (
-      <>
-        <SkillIcon icon={<SiExpress />} />
-        <SkillIcon icon={<SiMongodb />} />
-        <SkillIcon icon={<SiVercel />} />
-      </>
-    ),
-    period: "Dec 2022 - Apr 2023",
-    company: "PathwayPlus",
   },
 ];
 
