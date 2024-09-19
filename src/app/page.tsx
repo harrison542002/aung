@@ -76,7 +76,7 @@ const Home = () => {
               </p>
               <Link
                 href={
-                  "https://drive.google.com/file/d/13VeuGnzkUPK0It2aXgt0QgOMXwJEfHMS/view?usp=sharing"
+                  "https://drive.google.com/file/d/1DbPysGbVQcAzD2JF2BVjKLbzdVQarxbT/view?usp=sharing"
                 }
                 target="_blank"
               >
@@ -97,10 +97,16 @@ const Home = () => {
             >
               <div className="py-2 space-y-2">
                 <EduCard
+                  img="/img/edu/uwe.png"
+                  school="UWE Bristol"
+                  certificate="BSC (Hons) Top up in Information Technology"
+                  date="Sep 2024 - Present"
+                />
+                <EduCard
                   img="/img/edu/Lithan.png"
                   school="Lithan Academy"
                   certificate="Higher National Diploma In Computing"
-                  date="Mar 2022 - Present"
+                  date="Mar 2022 - Apr 2024"
                 />
                 <EduCard
                   img="/img/edu/myanmar.jpg"
