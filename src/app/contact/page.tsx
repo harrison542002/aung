@@ -173,7 +173,7 @@ const Contact = (props: Props) => {
                   <FiMail />
                 </div>
                 <p className="h-full flex flex-col justify-center py-1 text-base lg:text-lg ">
-                  aungthiha12345mdy@gmail.com
+                  aungthihahtun52@gmail.com
                 </p>
               </div>
               <div className="flex items-center">
@@ -181,7 +181,7 @@ const Contact = (props: Props) => {
                   <FaLocationArrow />
                 </div>
                 <p className="h-full flex flex-col justify-center py-1 lg:text-lg text-base">
-                  Mandalay, Myanmar
+                  Bristol, the United Kingdom
                 </p>
               </div>
             </div>
